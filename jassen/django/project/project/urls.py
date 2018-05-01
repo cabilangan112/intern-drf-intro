@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from rest_framework import routers
 from blog import views
-from blog.views import AnimeViewSet
+from blog.views import AnimeViewSet,WebsViewSet,breedViewSet
 
 router = routers.DefaultRouter()
+router.register(r'breeds', breedViewSet, base_name='breed')
 router.register(r'anime', views.AnimeViewSet)
-#router.register(r'groups', views.GroupViewSet)
+router.register(r'websites', views.WebsViewSet)
+
 
 from django.contrib import admin
 from django.urls import path
